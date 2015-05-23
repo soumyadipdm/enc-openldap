@@ -1,21 +1,24 @@
 ---
   ubuntu_desktop: 
     - "ubuntu.local.net"
-  dummy_range: 
-    - "do not add any host in this range"
+    - "mint.local.net"
   mns_server: 
     - "app03.local.net"
   mysql_server: 
     - "app02.local.net"
-  generic_host: 
-    - "app02.local.net"
-    - "app03.local.net"
-    - "app04.local.net"
-    - "app01.local.net"
-    - "ubuntu.local.net"
-    - "app05.local.net"
-    - "app05.local.net"
-    - "app06.local.net"
-    - "app06.local.net"
   cfe_mps: 
     - "app01.local.net"
+  test_host:
+    - "app04.local.net"
+    - "app05.local.net"
+    - "app06.local.net"
+    - "app07.local.net"
+    - "app08.local.net"
+    - "app09.local.net"
+  generic_host: 
+    - "cfe_mps"
+    - "mns_server"
+    - "mysql_server"
+    - "test_host"
+    - "ubuntu_desktop"
+

@@ -136,9 +136,20 @@ class Yaml2Ldap:
     def load_data_to_ldap(self):
         self._parse_yaml_files()
 
+        try:
+            self._create_host("dummy-member-ignore")
+
+        except ldap.ALREADY_EXISTS:
+            pass
+
+        except ldap.LDAPError as e:
+            raise Yaml2LdapException(e)
+
         for file_name in self.db.keys():
             for group in self.db[file_name].keys():
+                #print group
                 entries = self.db[file_name][group]
+                #print entries
 
                 self._create_simple_group(group)
 
