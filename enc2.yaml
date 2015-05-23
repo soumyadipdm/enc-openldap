@@ -1,0 +1,5 @@
+---
+  generic_host: 
+    - "docker_host"
+  docker_host:
+    - "app05.local.net"
