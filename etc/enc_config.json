@@ -1,0 +1,11 @@
+{
+    "ldaphost":"localhost",
+    "port":389,
+    "basedn":"dc=local,dc=net",
+    "user":"Manager",
+    "password":"asd@123",
+    "roles_ou":"groups",
+    "hosts_ou":"hosts",
+    "generic_role":"generic_host",
+    "dummy_host":"dummy-member-ignore"
+}
