@@ -146,7 +146,7 @@ class enc_modify:
 
         try:
             ldap_ldif = ldap.modlist.addModlist(attrs)
-            self.enc_ldap_instance.ldap_conn.add_s(host_dn, ldap_dif)
+            self.enc_ldap_instance.ldap_conn.add_s(host_dn, ldap_ldif)
 
         except ldap.ALREADY_EXISTS:
             pass
