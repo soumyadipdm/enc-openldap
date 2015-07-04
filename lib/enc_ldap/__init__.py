@@ -115,7 +115,7 @@ class enc_modify:
         except ldap.LDAPError as e:
             raise enc_ldap_exception(e)
 
-        '''all roles are part of giant "generic_host" role'''
+        '''all roles are part of giant "generic_host" role
         generic_role_dn = self.enc_ldap_instance.generic_role
         add_role_to_generic = [(ldap.MOD_ADD, 'member', role_dn)]
 
@@ -127,6 +127,7 @@ class enc_modify:
 
         except ldap.LDAPError as e:
             raise enc_ldap_exception(e)
+        '''
 
 
     def add_host(self, host_name, role_name=None):
@@ -173,6 +174,8 @@ class enc_modify:
         try:
             self.enc_ldap_instance.ldap_conn.modify_s(role_dn, attr)
 
+        except ldap.TYPE_OR_VALUE_EXISTS:
+            pass
         except ldap.LDAPError as e:
             raise enc_ldap_exception(e)
 

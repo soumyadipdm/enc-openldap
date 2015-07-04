@@ -60,6 +60,8 @@ def do_job(args):
             for host in hosts:
                 roles = args.to_role.split(",")
                 for role in roles:
+                    '''All hosts are part of huge generic role'''
+                    enc_cli.add_host_to_role(host, enc_config["generic_role"])
                     enc_cli.add_host_to_role(host, role)
                     print "Add host: {0} to role {1}  OK".format(host, role)
         else:
