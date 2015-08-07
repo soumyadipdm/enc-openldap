@@ -12,7 +12,7 @@ class LdapEncException(Exception):
     def __str__(self):
         return repr(self.value)
 
-class LdapEnc:
+class LdapEnc(object):
     def __init__(self, depth, ldaphost, basedn, user, password):
         self.range = {}
         self.basedn = basedn

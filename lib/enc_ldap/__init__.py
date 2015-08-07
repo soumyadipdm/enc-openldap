@@ -8,7 +8,7 @@ class enc_ldap_exception(Exception):
     def __str__(self):
         return repr(self.value)
 
-class enc_ldap:
+class enc_ldap(object):
     ''' Enc_ldap: encapsulates ldap for external node classification
     @args:
     ldaphost:  hostname/IP of the ldap server
@@ -44,7 +44,7 @@ class enc_ldap:
             raise enc_ldap_exception(e)
 
 
-class enc_modify:
+class enc_modify(object):
     def __init__(self, enc_ldap_instance):
         ''' takes ldap connection created by encldap.connect()
         as an argument
