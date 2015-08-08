@@ -54,7 +54,7 @@ def do_job(args):
     enc_db.connect()
     enc_cli = enc_ldap.enc_modify(enc_db)
 
-    if args.add_host:
+    if hasattr(args, 'add_host') and args.add_host:
         hosts = args.add_host.split(",")
         if args.to_role:
             for host in hosts:
@@ -69,13 +69,13 @@ def do_job(args):
                 enc_cli.add_host(host)
                 print "Add host: {0}  OK".format(host)
 
-    elif args.add_role:
+    elif hasattr(args, 'add_role') and args.add_role:
         roles = args.add_role.split(",")
         for role in roles:
             enc_cli.add_role(role)
             print "Add role: {0}  OK".format(role)
 
-    elif args.delete_host:
+    elif hasattr(args, 'delete_host') and args.delete_host:
         '''
         Delete a host from a specified role
         If role name is not specified, it just
@@ -96,7 +96,7 @@ def do_job(args):
                 enc_cli.delete_host(host)
                 print "Delete Host: {0}  OK".format(host)
 
-    elif args.delete_role:
+    elif hasattr(args, 'delete_role') and args.delete_role:
         roles = args.delete_role.split(",")
         for role in roles:
             enc_cli.delete_role(role)
